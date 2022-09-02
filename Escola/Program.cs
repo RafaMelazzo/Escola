@@ -37,14 +37,14 @@
 
         Console.Clear();
 
-        if (Aluno.Todos().Count == 0)
+        if (Aluno.TodosSql().Count == 0)
         {
             Console.WriteLine("Nenhum aluno cadastrado!");
             Thread.Sleep(2000);
             return;
         }
 
-        foreach (var aluno in Aluno.Todos())
+        foreach (var aluno in Aluno.TodosSql())
         {
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("Nome: " + aluno.Nome);
@@ -81,7 +81,7 @@
         }
 
         aluno.Notas = listaNotas;
-        Aluno.Adicionar(aluno);
+        Aluno.AdicionarSql(aluno);
 
         Console.Clear();
         Console.WriteLine("Aluno cadastrado com sucesso!");
