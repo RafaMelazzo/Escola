@@ -8,7 +8,7 @@ namespace Escola.Entidades
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public List<double> Notas { get; set; }
-        public OndeSalvar OndeSalvar { get; internal set; }
+        public OndeSalvar OndeSalvar { get; set; }
 
         public double Media()
         {

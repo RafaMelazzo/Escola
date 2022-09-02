@@ -1,5 +1,5 @@
-﻿using Escola;
-using Escola.Entidades;
+﻿using Escola.Entidades;
+using Escola.Enum;
 using Escola.Repositorios;
 
 class Program
@@ -85,7 +85,8 @@ class Program
         }
 
         aluno.Notas = listaNotas;
-        new AlunoRepositorioSql().Salvar(aluno);
+        aluno.OndeSalvar = OndeSalvar.Sql;
+        new AlunoRepositorio().Salvar(aluno);
 
         Console.Clear();
         Console.WriteLine("Aluno cadastrado com sucesso!");

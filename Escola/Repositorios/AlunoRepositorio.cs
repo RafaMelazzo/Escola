@@ -11,14 +11,14 @@ namespace Escola.Repositorios
             {
                 new AlunoRepositorioJson().Salvar(aluno);
             }
-            else if (aluno.OndeSalvar == OndeSalvar.Sql)
+            else //if (aluno.OndeSalvar == OndeSalvar.Sql)
             {
                 new AlunoRepositorioSql().Salvar(aluno);
             }
-            else
-            {
-                throw new Exception("Tipo inexistente!");
-            }
+            //else
+            //{
+            //    throw new Exception("Tipo inexistente!");
+            //}
         }
     }
 }
