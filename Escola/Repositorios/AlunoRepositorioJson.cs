@@ -1,17 +1,23 @@
 ﻿using Escola.Entidades;
+using Escola.Interfaces;
 using Newtonsoft.Json;
 using System.Configuration;
 
 namespace Escola.Repositorios
 {
-    public class AlunoRepositorioJson
+    public class AlunoRepositorioJson : IRepositorio
     {
         private string caminhoJson()
         {
             return ConfigurationManager.AppSettings["caminho_json"];
         }
 
-        public List<Aluno> TodosJson()
+        public int Quantidade()
+        {
+            return this.Todos().Count();
+        }
+
+        public List<Aluno> Todos()
         {
             var alunos = new List<Aluno>();
             if (File.Exists(caminhoJson()))
@@ -24,7 +30,7 @@ namespace Escola.Repositorios
 
         public void Salvar(Aluno aluno)
         {
-            var alunos = TodosJson();
+            var alunos = Todos();
             alunos.Add(aluno);
             File.WriteAllText(caminhoJson(), JsonConvert.SerializeObject(alunos));
         }

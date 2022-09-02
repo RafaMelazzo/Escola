@@ -1,10 +1,9 @@
 ﻿using Escola.Entidades;
-using Escola.Enum;
 using Escola.Repositorios;
 
 class Program
 {
-  
+    private static AlunoRepositorio repo = new AlunoRepositorio(new AlunoRepositorioSql());
     static void Main(string[] args)
     {
         while (true)
@@ -40,7 +39,6 @@ class Program
     {
 
         Console.Clear();
-        var repo = new AlunoRepositorioSql();
         if (repo.Quantidade() == 0)
         {
             Console.WriteLine("Nenhum aluno cadastrado!");
@@ -85,8 +83,8 @@ class Program
         }
 
         aluno.Notas = listaNotas;
-        aluno.OndeSalvar = OndeSalvar.Sql;
-        new AlunoRepositorio().Salvar(aluno);
+        
+        repo.Salvar(aluno);
 
         Console.Clear();
         Console.WriteLine("Aluno cadastrado com sucesso!");

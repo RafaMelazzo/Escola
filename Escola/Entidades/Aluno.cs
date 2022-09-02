@@ -1,6 +1,4 @@
-﻿using Escola.Enum;
-
-namespace Escola.Entidades
+﻿namespace Escola.Entidades
 {
     public class Aluno
     {
@@ -8,7 +6,6 @@ namespace Escola.Entidades
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public List<double> Notas { get; set; }
-        public OndeSalvar OndeSalvar { get; set; }
 
         public double Media()
         {

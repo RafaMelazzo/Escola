@@ -1,10 +1,11 @@
 ﻿using Escola.Entidades;
+using Escola.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 
 namespace Escola.Repositorios
 {
-    public class AlunoRepositorioSql
+    public class AlunoRepositorioSql : IRepositorio
     {
         private string stringConexaoSql()
         {

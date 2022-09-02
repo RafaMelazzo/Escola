@@ -1,24 +1,29 @@
 ﻿using Escola.Entidades;
-using Escola.Enum;
+using Escola.Interfaces;
 
 namespace Escola.Repositorios
 {
     public class AlunoRepositorio
     {
+        private IRepositorio repo;
+        public AlunoRepositorio(IRepositorio repo)
+        {
+            this.repo = repo;
+        }
+
+        public int Quantidade()
+        {
+            return repo.Quantidade();
+        }
+
+        public List<Aluno> Todos()
+        {
+            return repo.Todos();
+        }
+
         public void Salvar(Aluno aluno)
         {
-            if (aluno.OndeSalvar == OndeSalvar.Arquivo)
-            {
-                new AlunoRepositorioJson().Salvar(aluno);
-            }
-            else //if (aluno.OndeSalvar == OndeSalvar.Sql)
-            {
-                new AlunoRepositorioSql().Salvar(aluno);
-            }
-            //else
-            //{
-            //    throw new Exception("Tipo inexistente!");
-            //}
+            repo.Salvar(aluno);
         }
     }
 }
